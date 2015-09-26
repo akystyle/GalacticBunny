@@ -17,5 +17,10 @@ public class MyAssetLoader {
 	public static Texture loadAssets(String assetPath){
 		return new Texture(Gdx.files.internal(assetPath));
 	}
+
+	public static void dispose() {
+		// TODO Auto-generated method stub
+		akydroidLogo.dispose();
+	}
 	
 }

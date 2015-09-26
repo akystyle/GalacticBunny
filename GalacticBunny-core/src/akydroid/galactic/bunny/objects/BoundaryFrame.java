@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 
 public class BoundaryFrame {
 
-	final String assetPath = "texture/boundaryTerrain/grass.png";
+	final String assetPath = "data/textures/boundaryTerrain/grass.png";
 	Texture myPic;
 	Vector2[] upperBox,lowerBox;
 
@@ -19,17 +19,11 @@ public class BoundaryFrame {
 		int widthBlocks = (int) gameWidth / myPic.getWidth();
 		
 		upperBox = new Vector2[widthBlocks];
+		lowerBox = new Vector2[widthBlocks];		
 		
-		for(int i = 0;i< widthBlocks; i++){
-			upperBox[i].x = i * myPic.getWidth();
-			upperBox[i].y = 0;
-		}
-		
-		lowerBox = new Vector2[heightBlocks];
-		
-		for(int i = 0;i< widthBlocks; i++){
-			lowerBox[i].x = i * myPic.getWidth();
-			lowerBox[i].y = (heightBlocks - 1) * myPic.getHeight();
+		for(int i = 0;i < widthBlocks; i++){
+			upperBox[i] = new Vector2(i * myPic.getWidth(),0);
+			lowerBox[i] = new Vector2(i * myPic.getWidth(),(heightBlocks - 1) * myPic.getHeight());			
 		}
 	}	
 }

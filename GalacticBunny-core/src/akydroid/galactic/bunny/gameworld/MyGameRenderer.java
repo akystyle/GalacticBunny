@@ -3,7 +3,6 @@ package akydroid.galactic.bunny.gameworld;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
@@ -32,8 +31,6 @@ public class MyGameRenderer {
 		myBatcher.setProjectionMatrix(myCam.combined);
 		myShapeRenderer.setProjectionMatrix(myCam.combined);
 		
-		
-		
 	}
 	
 	public void render(float delta, float myRuntime){
@@ -43,6 +40,7 @@ public class MyGameRenderer {
 		
 		myBatcher.begin();
 		myBatcher.disableBlending();
-		myBatcher.draw(myGameWorld.getPlayer().getMyPic(), 0, 0);
+		myBatcher.draw(myGameWorld.getPlayer().getMyPic(), myGameWorld.getPlayer().getPositionX(), myGameWorld.getPlayer().getPositionY());
+		myBatcher.end();
 	}
 }

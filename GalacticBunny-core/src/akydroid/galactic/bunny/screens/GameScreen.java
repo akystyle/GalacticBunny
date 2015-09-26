@@ -13,7 +13,6 @@ public class GameScreen implements Screen{
 	MyGameRenderer myGameRenderer;
 	float myRuntime = 0;
 	float screenHeight,screenWidth;
-
 	
 	public GameScreen(float screenHeight,float screenWidth){
 		this.screenHeight = screenHeight;
@@ -24,21 +23,19 @@ public class GameScreen implements Screen{
 		float scaleFactorX = screenWidth / gameWidth;
 		float scaleFactorY = screenHeight / gameHeight;
 		
-		myGameRenderer = new MyGameRenderer(myGameWorld, screenHeight,screenWidth, gameHeight);
 		myGameWorld = new MyGameWorld(screenHeight,screenWidth,gameHeight,gameWidth,scaleFactorX,scaleFactorY);
+		myGameRenderer = new MyGameRenderer(myGameWorld, screenHeight,screenWidth, gameHeight);
+		
 		myGameWorld.setRenderer(myGameRenderer);
 		
 		Gdx.input.setInputProcessor(new MyInputHandler(myGameWorld));
 	}
 
-	@Override
 	public void render(float delta) {
 		myRuntime += delta;
-	
+		
 		myGameWorld.update(delta);
 		myGameRenderer.render(delta,myRuntime);
-		
-		
 	}
 
 	@Override

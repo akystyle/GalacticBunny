@@ -15,10 +15,11 @@ public class GalacticBunnyMainGameClass extends Game {
 		screenHeight = Gdx.graphics .getHeight();
 		screenWidth = Gdx.graphics.getWidth();
 		MyAssetLoader.loadBasicsForStart();
-		setScreen(new LogoSplashScreen(screenHeight,screenWidth));
+		setScreen(new LogoSplashScreen(this,screenHeight,screenWidth));
 	}
 
 	public void dispose() {
-		
+		super.dispose();
+		MyAssetLoader.dispose();
 	}
 }

@@ -17,7 +17,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class LogoSplashScreen implements Screen {
 	TweenManager myTweenManager;
-	//MyGameRenderer myGameRenderer;
 	Sprite akydroidLogoSprite;
 	SpriteBatch myBatcher;
 	GalacticBunnyMainGameClass myGame;
@@ -25,10 +24,10 @@ public class LogoSplashScreen implements Screen {
 	float screenHeight,screenWidth;
 	
 	
-	public LogoSplashScreen(float screenHeight,float screenWidth){
+	public LogoSplashScreen(GalacticBunnyMainGameClass myGame, float screenHeight,float screenWidth){
 		this.screenHeight = screenHeight;
 		this.screenWidth = screenWidth;
-		myGame = new GalacticBunnyMainGameClass();
+		this.myGame = myGame;
 		myBatcher = new SpriteBatch();
 		akydroidLogoSprite = new Sprite(MyAssetLoader.akydroidLogo);
 		akydroidLogoSprite.setColor(1, 1, 1, 0);
