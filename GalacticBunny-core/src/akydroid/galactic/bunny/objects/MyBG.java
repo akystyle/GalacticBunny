@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class MyBG {
 
-	final String assetPath = "data/textures/backgrounds/background-1.png";
+	final String assetPath = "data/textures/backgrounds/background-4.png";
 	Texture myPicTex;
 	TextureRegion myPic;
 	
