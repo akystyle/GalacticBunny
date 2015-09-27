@@ -23,6 +23,8 @@ public class GameScreen implements Screen{
 		float scaleFactorX = screenWidth / gameWidth;
 		float scaleFactorY = screenHeight / gameHeight;
 		
+		//logStats(gameWidth,gameHeight,scaleFactorX,scaleFactorY);
+		
 		myGameWorld = new MyGameWorld(screenHeight,screenWidth,gameHeight,gameWidth,scaleFactorX,scaleFactorY);
 		myGameRenderer = new MyGameRenderer(myGameWorld, screenHeight,screenWidth, gameHeight);
 		
@@ -38,6 +40,17 @@ public class GameScreen implements Screen{
 		myGameRenderer.render(delta,myRuntime);
 	}
 
+	
+	@SuppressWarnings("unused")
+	private void logStats(float gameWidth, float gameHeight, float scaleFactorX, float scaleFactorY){
+		Gdx.app.log("Game Screen", "ScreenWidth: " + screenWidth);
+		Gdx.app.log("Game Screen", "ScreenHeight: " + screenHeight);
+		Gdx.app.log("Game Screen", "GameWidth: " + gameWidth);
+		Gdx.app.log("Game Screen", "GameHeight: " + gameHeight);
+		Gdx.app.log("Game Screen", "ScaleX: " + scaleFactorX);
+		Gdx.app.log("Game Screen", "ScaleY: " + scaleFactorY);
+	}
+	
 	@Override
 	public void show() {
 	}
