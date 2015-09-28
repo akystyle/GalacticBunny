@@ -9,6 +9,9 @@ import com.badlogic.gdx.Screen;
 
 public class GameScreen implements Screen{
 
+	final int GAMEWIDTH = 272;
+	
+	
 	MyGameWorld myGameWorld;
 	MyGameRenderer myGameRenderer;
 	float myRuntime = 0;
@@ -17,20 +20,20 @@ public class GameScreen implements Screen{
 	public GameScreen(float screenHeight,float screenWidth){
 		this.screenHeight = screenHeight;
 		this.screenWidth = screenWidth;
-		float gameWidth = 272;
+		float gameWidth = GAMEWIDTH;
 		float gameHeight = screenHeight / (screenWidth / gameWidth);
 		
-		float scaleFactorX = screenWidth / gameWidth;
-		float scaleFactorY = screenHeight / gameHeight;
+		float scaleX = screenWidth / gameWidth;
+		float scaleY = screenHeight / gameHeight;
 		
 		//logStats(gameWidth,gameHeight,scaleFactorX,scaleFactorY);
 		
-		myGameWorld = new MyGameWorld(screenHeight,screenWidth,gameHeight,gameWidth,scaleFactorX,scaleFactorY);
+		myGameWorld = new MyGameWorld(screenHeight,screenWidth,gameHeight,gameWidth,scaleX,scaleY);
 		myGameRenderer = new MyGameRenderer(myGameWorld, screenHeight,screenWidth, gameHeight);
 		
 		myGameWorld.setRenderer(myGameRenderer);
 		
-		Gdx.input.setInputProcessor(new MyInputHandler(myGameWorld));
+		Gdx.input.setInputProcessor(new MyInputHandler(myGameWorld, GAMEWIDTH,scaleX,scaleY));
 	}
 
 	public void render(float delta) {
